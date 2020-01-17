@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form action="/submit" method="post">
+        {%csrf_token%}
+        <label for="">First name:<input type="text" name="first_name" id=""></label>
+        <label for="">Last name:<input type="text" name="last_name" id=""></label>
+        <label for="">Email:<input type="email" name="email" id=""></label>
+        <label for="">Password:<input type="password" name="password" id=""></label>
+        <label for="">Confirsm password:<input type="password" name="cpassword" id=""></label>
+        <label for="">Date of birth:<input type="date" name="bday" id=""></label>
+        <label for="">Bio:<textarea name="bio" id="" cols="30" rows="10"></textarea></label>
+        <button>Send</button>
+    </form>
+</body>
+</html>
