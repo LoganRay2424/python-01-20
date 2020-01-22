@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/logout">Logout</a>
+    <a href="/dog/new">Create</a>
+    <p>Welcome, {{user.first_name}}</p>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <h1>Good Boys</h1>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Weight</th>
+                    <th>Birthday</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {%for dog in good_dog%}
+                    <tr>
+                        <th>{{dog.name}}</th>
+                        <th>{{dog.age}}</th>
+                        <th>{{dog.weight}}</th>
+                        <th>{{dog.birthday}}</th>
+                        <th>
+                            <a href="/dog/{{dog.id}}/toggle">Bad boy</a> |
+                            <a href="/dog/{{dog.id}}">Profile</a> |
+                            <a href="/dog/{{dog.id}}/edit">Edit</a> |
+                            <a href="/dog/{{dog.id}}/delete">Delete</a>
+                        </th>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        
+            </div>
+            <div class="col">
+            <h1>Bad Boys</h1>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Weight</th>
+                    <th>Birthday</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {%for dog in bad_dog%}
+                    <tr>
+                        <th>{{dog.name}}</th>
+                        <th>{{dog.age}}</th>
+                        <th>{{dog.weight}}</th>
+                        <th>{{dog.birthday}}</th>
+                        <th>
+                            <a href="/dog/{{dog.id}}/toggle">Good boy</a> |
+                            <a href="/dog/{{dog.id}}">Profile</a> |
+                            <a href="/dog/{{dog.id}}/edit">Edit</a> |
+                            <a href="/dog/{{dog.id}}/delete">Delete</a>
+                        </th>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
