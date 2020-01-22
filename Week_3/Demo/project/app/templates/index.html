@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h2>All shows</h2>
+    <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Network</th>
+            <th scope="col">Release date</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {%for show in shows%}
+          <tr>
+            <th>{{show.id}}</th>
+            <th>{{show.title}}</th>
+            <th>{{show.network}}</th>
+            <th>{{show.release_date}}</th>
+            <th>
+                <a href="/show/{{show.id}}">Show</a> |
+                <a href="/show/{{show.id}}/delete">Delete</a> |
+                <a href="/show/{{show.id}}/edit">Edit</a>
+            </th>
+          </tr>
+            {%endfor%}
+        </tbody>
+      </table>
+      <a href="/show/new">Add new show</a>
+</body>
+</html>
